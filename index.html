@@ -12,6 +12,7 @@
   :root{
     --void:#0A0A0E; --void-2:#111117; --panel:#16161D; --panel-2:#1D1D26;
     --cyan:#00E6C3; --gold:#FFC94D; --purple:#8B6BFF; --danger:#FF4D5E;
+    --orange:#FF8A3D; --vng:#FF3DA8;
     --text:#F3F4F8; --text-dim:#9EA1B5;
     --line: rgba(255,255,255,0.10);
     --maxw: 760px;
@@ -123,7 +124,8 @@
   .country-key span{ display:inline-flex; align-items:center; gap:6px; padding:5px 12px; background:var(--panel-2); border:1px solid var(--line); }
   .ck-dot{ width:10px; height:10px; border-radius:50%; display:inline-block; }
   .ck-dot.sg{ background:var(--cyan); box-shadow:0 0 6px var(--cyan); }
-  .ck-dot.my{ background:var(--gold); box-shadow:0 0 6px var(--gold); }
+  .ck-dot.my{ background:var(--orange); box-shadow:0 0 6px var(--orange); }
+  .ck-dot.vng{ background:var(--vng); box-shadow:0 0 6px var(--vng); }
 
   .dashboard-label{ display:inline-flex; align-items:center; gap:7px; font-family:'Rajdhani',sans-serif; font-weight:700; font-size:12px; color:var(--cyan); letter-spacing:0.08em; margin-bottom:10px; }
   .dashboard-label::before{ content:"◆"; font-size:9px; }
@@ -138,7 +140,7 @@
   .stat-grid{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
   .stat-tile{ background:var(--panel-2); border:1px solid var(--line); padding:14px 16px; position:relative; overflow:hidden; }
   .stat-tile::before{ content:""; position:absolute; left:0; top:0; width:100%; height:2px; background:linear-gradient(90deg, var(--cyan), transparent 70%); }
-  .stat-tile.my::before{ background:linear-gradient(90deg, var(--gold), transparent 70%); }
+  .stat-tile.my::before{ background:linear-gradient(90deg, var(--orange), transparent 70%); }
   .stat-tile .v{ font-family:'Rajdhani',sans-serif; font-weight:700; font-size:22px; color:var(--text); line-height:1.2; }
   .stat-tile .l{ font-size:11.5px; color:var(--text-dim); margin-top:6px; }
   @media (max-width:480px){ .stat-grid{ grid-template-columns:1fr; } }
@@ -273,11 +275,6 @@
     <span><i class="ck-dot my"></i>馬來西亞 MY</span>
   </div>
 
-  <div class="chart-panel">
-    <div class="cp-head"><div class="cp-title">核心圖：足球手遊佔整體手遊市場營收比重（2014–2025）</div><div class="cp-note">實測 · %</div></div>
-    <div class="chart-box"><canvas id="chartShare"></canvas></div>
-  </div>
-
   <div class="stat-group">
     <div class="glabel"><i class="ck-dot sg"></i>新加坡</div>
     <div class="stat-grid">
@@ -293,21 +290,21 @@
     </div>
   </div>
 
-  <p><strong>核心結論：</strong>新加坡的足球遊戲份額十年來相當穩定，維持在1.3%–2.1%之間，說明足球遊戲在新加坡是「穩定的小眾」。馬來西亞則完全不同：2014–2019年間份額也只有1.3%–2.3%，但從2020年開始一路攀升，2025年已達<strong>9.5%</strong>，最近12個月更來到<strong>9.9%</strong>——馬來西亞每10塊錢的手遊消費，就有將近1塊錢是花在足球遊戲上。</p>
-
-  <h3 class="sub-title"><i class="ck-dot sg"></i>新加坡：溫和成長的成熟市場</h3>
+  <!-- CHARTS -->
   <div class="chart-panel">
-    <div class="cp-head"><div class="cp-title">整體手遊 vs 足球手遊年度營收（新加坡）</div><div class="cp-note">實測 · US$</div></div>
+    <div class="cp-head"><div class="cp-title">核心圖：足球手遊佔整體手遊市場營收比重（2014–2025）</div><div class="cp-note">實測 · %</div></div>
+    <div class="chart-box"><canvas id="chartShare"></canvas></div>
+  </div>
+
+  <div class="chart-panel">
+    <div class="cp-head"><div class="cp-title">整體手遊 vs 足球手遊年度營收（新加坡）</div><div class="cp-note">實測 · US$ · 對數座標</div></div>
     <div class="chart-box"><canvas id="chartSGdetail"></canvas></div>
   </div>
-  <p>新加坡整體手遊市場從2014年US$1.04億成長到2025年US$2.68億；足球手遊則從US$215萬到US$479萬，維持在US$200–500萬區間，波動主要跟著世界盃周期起伏（2014、2018、2022年營收明顯墊高）。近12個月下載126萬次、營收US$530萬，下載量年減8.4%但營收逆勢成長8.2%，代表每次下載的變現效率（RPD）從US$3.9提升到US$4.2。收入以<strong>iPhone為主（53.7%）</strong>。</p>
 
-  <h3 class="sub-title"><i class="ck-dot my"></i>馬來西亞：結構性轉移正在發生</h3>
   <div class="chart-panel">
-    <div class="cp-head"><div class="cp-title">整體手遊 vs 足球手遊年度營收（馬來西亞）</div><div class="cp-note">實測 · US$</div></div>
+    <div class="cp-head"><div class="cp-title">整體手遊 vs 足球手遊年度營收（馬來西亞）</div><div class="cp-note">實測 · US$ · 對數座標</div></div>
     <div class="chart-box"><canvas id="chartMYdetail"></canvas></div>
   </div>
-  <p>馬來西亞整體手遊市場從2014年US$5,080萬成長到2025年US$3.08億；足球手遊則從US$108萬暴衝到US$2,937萬，2020至2022兩年間就從US$766萬翻倍到US$1,650萬。這個轉折點大約落在2020–2021年，剛好對應疫情期間居家娛樂需求上升，以及eFootball、EA FC Mobile在該時期加大課金機制與球星授權投入的時間點。近12個月下載834萬次、營收US$3,076萬，下載與營收同步成長（+13.6%／+11.1%）。收入以<strong>Android為主（53.1%）</strong>。兩地合計營收US$3,606萬中，馬來西亞貢獻了85.3%。</p>
 
   <div class="chart-panel">
     <div class="cp-head"><div class="cp-title">近期月度營收走勢，足球手遊（2023/01–2026/09）</div><div class="cp-note">實測 · US$</div></div>
@@ -322,9 +319,18 @@
     </div>
   </div>
 
+  <!-- ANALYSIS -->
+  <p><strong>核心結論：</strong>新加坡的足球遊戲份額十年來相當穩定，維持在1.3%–2.1%之間，說明足球遊戲在新加坡是「穩定的小眾」。馬來西亞則完全不同：2014–2019年間份額也只有1.3%–2.3%，但從2020年開始一路攀升，2025年已達<strong>9.5%</strong>，最近12個月更來到<strong>9.9%</strong>——馬來西亞每10塊錢的手遊消費，就有將近1塊錢是花在足球遊戲上。</p>
+
+  <h3 class="sub-title"><i class="ck-dot sg"></i>新加坡：溫和成長的成熟市場</h3>
+  <p>新加坡整體手遊市場從2014年US$1.04億成長到2025年US$2.68億；足球手遊則從US$215萬到US$479萬，維持在US$200–500萬區間，波動主要跟著世界盃周期起伏（圖上以★標示2014、2018、2022三個世界盃年份）。近12個月下載126萬次、營收US$530萬，下載量年減8.4%但營收逆勢成長8.2%，代表每次下載的變現效率（RPD）從US$3.9提升到US$4.2。收入以<strong>iPhone為主（53.7%）</strong>。</p>
+
+  <h3 class="sub-title"><i class="ck-dot my"></i>馬來西亞：結構性轉移正在發生</h3>
+  <p>馬來西亞整體手遊市場從2014年US$5,080萬成長到2025年US$3.08億；足球手遊則從US$108萬暴衝到US$2,937萬，2020至2022兩年間就從US$766萬翻倍到US$1,650萬。這個轉折點大約落在2020–2021年，剛好對應疫情期間居家娛樂需求上升，以及eFootball、EA FC Mobile在該時期加大課金機制與球星授權投入的時間點。近12個月下載834萬次、營收US$3,076萬，下載與營收同步成長（+13.6%／+11.1%）。收入以<strong>Android為主（53.1%）</strong>。兩地合計營收US$3,606萬中，馬來西亞貢獻了85.3%。</p>
+
   <div class="var-box">
-    <div class="h"><span class="card-icon"></span>已確認：這是品類加總，且已交叉驗證</div>
-    <p>你後續提供的近12個月產品層級營收排名，加總後（新加坡US$492萬、馬來西亞US$3,051萬）與本章的品類加總數字（新加坡US$530萬、馬來西亞US$3,076萬）高度吻合，覆蓋率分別達92.9%與99.2%，證實這份「足球手遊」資料確實是品類加總而非單一產品。詳細的產品層級拆解，請見第二章。</p>
+    <div class="h"><span class="card-icon"></span>市場規模總整理</div>
+    <p>綜合以上數據，新馬兩地呈現兩種截然不同的市場型態：新加坡是「規模小但穩定」的成熟利基市場，十年來足球遊戲佔比幾乎沒有變化，成長天花板已現；馬來西亞則是「規模大且仍在擴張」的結構性成長市場，足球遊戲從邊緣品類（2%）成長為接近整體手遊營收一成的主流品類，且成長動能主要發生在近5年，並非長期趨勢。這代表兩地需要完全不同的市場進入策略：新加坡適合走差異化利基路線，馬來西亞則要正面面對一個持續擴大、但也持續集中化的市場（詳見第二章的品牌集中度分析）。這份「足球手遊」品類數據已與第二章的產品層級Top 10排名交叉核對，覆蓋率達92.9%（新加坡）與99.2%（馬來西亞），確認為品類加總而非單一產品的數字。</p>
   </div>
 </section>
 <div class="pager"><button class="prev">← 上一頁</button><span class="count">1 / 9</span><button class="next">下一頁 →</button></div>
@@ -335,21 +341,13 @@
 <section class="chapter">
   <div class="ch-kicker"><span class="badge">2</span><span class="lb">競品分析</span></div>
   <h2 class="ch-title">馬來西亞近乎「一款遊戲的市場」：eFootball 獨拿85%</h2>
-  <p>你提供的新馬近12個月營收前十名單，讓這章從「猜測誰在領先」變成有實際數字支撐（2025/09–2026/09，App Store＋Google Play 雙平台加總）。</p>
+  <p>以下是各產品最近約12個月（2025/09–2026/09）在兩地的營收排名，涵蓋 App Store＋Google Play 雙平台加總。</p>
 
   <div class="dashboard-label">DASHBOARD · 兩地Top 10排名</div>
   <div class="country-key">
     <span><i class="ck-dot sg"></i>新加坡 SG</span>
-    <span><i class="ck-dot my"></i>馬來西亞 MY（金色＝未滿12個月的新作）</span>
-  </div>
-
-  <div class="chart-panel">
-    <div class="cp-head"><div class="cp-title">新加坡：近12個月足球遊戲營收排名 Top 10</div><div class="cp-note">實測 · US$ · 對數座標</div></div>
-    <div class="chart-box tall"><canvas id="chartRankSG"></canvas></div>
-  </div>
-  <div class="chart-panel">
-    <div class="cp-head"><div class="cp-title">馬來西亞：近12個月足球遊戲營收排名 Top 10</div><div class="cp-note">實測 · US$ · 對數座標</div></div>
-    <div class="chart-box tall"><canvas id="chartRankMY"></canvas></div>
+    <span><i class="ck-dot my"></i>馬來西亞 MY</span>
+    <span><i class="ck-dot vng"></i>Total Football VNG（另立專章，見第八章）</span>
   </div>
 
   <div class="stat-group">
@@ -367,11 +365,26 @@
     </div>
   </div>
 
+  <!-- CHARTS -->
+  <div class="chart-panel">
+    <div class="cp-head"><div class="cp-title">新加坡：近12個月足球遊戲營收排名 Top 10</div><div class="cp-note">實測 · US$ · 對數座標</div></div>
+    <div class="chart-box tall"><canvas id="chartRankSG"></canvas></div>
+  </div>
+  <div class="chart-panel">
+    <div class="cp-head"><div class="cp-title">馬來西亞：近12個月足球遊戲營收排名 Top 10</div><div class="cp-note">實測 · US$ · 對數座標</div></div>
+    <div class="chart-box tall"><canvas id="chartRankMY"></canvas></div>
+  </div>
+  <div class="chart-panel">
+    <div class="cp-head"><div class="cp-title">新加坡＋馬來西亞合併：近12個月足球遊戲營收排名 Top 10</div><div class="cp-note">實測 · US$ · 對數座標 · 顏色＝該產品主要營收來源市場</div></div>
+    <div class="chart-box tall"><canvas id="chartRankCombined"></canvas></div>
+  </div>
+
+  <!-- ANALYSIS -->
   <h3 class="sub-title"><i class="ck-dot sg"></i>新加坡：真正的兩強對決</h3>
   <p>EA SPORTS FC Mobile Soccer 以 US$194萬 些微領先 eFootball 系列（本體 US$145萬 ＋ eFootball CHAMPION SQUADS US$54萬），兩大集團合計約佔新加坡足球遊戲市場八成營收。Top Eleven 穩居第三（US$51萬），是唯一打入前三的非卡牌對戰類產品，證實管理模擬類在新加坡確實有穩定的忠實客群。</p>
 
   <h3 class="sub-title"><i class="ck-dot my"></i>馬來西亞：答案揭曉，是 eFootball 一款產品撐起來的</h3>
-  <p>第一章那條從2%衝上10%的份額曲線，幾乎全部是 <strong>eFootball</strong> 撐起來的——把Top 10加總（US$3,051萬）對比第一章品類加總數字（US$3,076萬），覆蓋率高達99.2%，兩份資料互相印證。這代表<strong>兩地的「進入障礙」完全不同</strong>：切入馬來西亞等於正面挑戰一個接近壟斷的巨頭；切入新加坡則是在相對均衡的格局裡找差異化空間。</p>
+  <p>第一章那條從2%衝上10%的份額曲線，幾乎全部是 <strong>eFootball</strong> 撐起來的——把Top 10加總（US$3,051萬）對比第一章品類加總數字（US$3,076萬），覆蓋率高達99.2%，兩份資料互相印證。這代表<strong>兩地的「進入障礙」完全不同</strong>：切入馬來西亞等於正面挑戰一個接近壟斷的巨頭；切入新加坡則是在相對均衡的格局裡找差異化空間。合併排名也清楚顯示，eFootball是唯一一款在兩地合計營收都遠超其他對手的產品，市場地位遠比單看任一國家更加突出。</p>
 
   <p>值得留意的長尾產品：<strong>Total Football VNG</strong>（越南VNG發行）在馬來西亞上線約5個月，詳細分析請見第八章；<strong>eFootball CHAMPION SQUADS</strong>在兩地都排進前六，顯示 Konami 的多產品布局策略。</p>
 
@@ -391,8 +404,8 @@
   <p>全球格局上，eFootball 累計下載已突破 <strong>9.5 億次</strong>，約 58% 的終身玩家消費來自日本本土；這與它在馬來西亞的壓倒性表現相互呼應，顯示 Konami 的抽卡機制與球星授權策略在亞太新興市場特別奏效。</p>
 
   <div class="var-box">
-    <div class="h"><span class="card-icon"></span>已解決＋新的待查項目</div>
-    <p>原本「哪款產品主導馬來西亞份額成長」的疑問已由這份資料解答（eFootball）。新的待查項目：eFootball 在馬來西亞的成長是否與特定行銷活動、球星合作或在地代理商推廣有關——請見第五、七章。</p>
+    <div class="h"><span class="card-icon"></span>競品格局總整理</div>
+    <p>馬來西亞市場的核心問題已經解答：eFootball一款產品主導了近85%的份額。後續值得追查的是這個優勢是否與特定行銷活動、球星合作或在地代理商推廣有關——請見第五、七章的授權與行銷手法分析。</p>
   </div>
 </section>
 <div class="pager"><button class="prev">← 上一頁</button><span class="count">2 / 9</span><button class="next">下一頁 →</button></div>
@@ -415,12 +428,11 @@
   <p>這些資料集都不含「足球遊戲」細分，只到「online games」大類，若要精確到足球品類，仍需搭配問卷或社群聆聽方式補強。</p>
 
   <div class="var-box">
-    <div class="h"><span class="card-icon"></span>你可以提供哪些東西，讓我把這章補完？</div>
-    <p>依可行性排序：<br>
-    ① <strong>最快</strong>——如果你或同事有 Statista 帳號，把上面列的資料集截圖或匯出貼給我，我直接幫你解讀整合進報告。<br>
-    ② <strong>中等</strong>——App Store／Google Play 上 EA SPORTS FC Mobile、eFootball、Top Eleven 的用戶評論匯出（哪怕只是新馬兩地各50–100則），我可以做關鍵字與情緒分析，推論付費痛點與偏好。<br>
-    ③ <strong>較久</strong>——如果你能設計並發放100–200份問卷，我可以先幫你擬好問卷題目與選項（鎖定足球遊戲玩家，涵蓋付費意願、遊玩場景、對本土聯賽內容的興趣），你負責發放後把回收數據給我分析。<br>
-    ④ <strong>免費但較弱</strong>——Reddit（r/singapore、r/malaysia）或本土足球社團的貼文截圖／討論串連結，我可以做質化的社群聆聽整理，作為量化資料的補充佐證。</p>
+    <div class="h"><span class="card-icon"></span>資料蒐集建議（按可行性排序）</div>
+    <p>① <strong>最快</strong>——若團隊有 Statista 帳號存取權限，可直接調閱上列資料集並整合進報告。<br>
+    ② <strong>中等</strong>——匯出 App Store／Google Play 上 EA SPORTS FC Mobile、eFootball、Top Eleven 的用戶評論（新馬兩地各50–100則），做關鍵字與情緒分析，推論付費痛點與偏好。<br>
+    ③ <strong>較久</strong>——設計並發放100–200份問卷（鎖定足球遊戲玩家，涵蓋付費意願、遊玩場景、對本土聯賽內容的興趣），回收後進行分析。<br>
+    ④ <strong>免費但較弱</strong>——蒐集 Reddit（r/singapore、r/malaysia）或本土足球社團的討論串，做質化的社群聆聽整理，作為量化資料的補充佐證。</p>
   </div>
 </section>
 <div class="pager"><button class="prev">← 上一頁</button><span class="count">3 / 9</span><button class="next">下一頁 →</button></div>
@@ -558,7 +570,7 @@
 <section class="chapter">
   <div class="ch-kicker"><span class="badge">8</span><span class="lb">案例深挖：Total Football VNG</span></div>
   <h2 class="ch-title">修正前章觀察：這其實是泰國／越南的遊戲，馬來西亞只是配角</h2>
-  <p>你提供了 Total Football VNG 在全球112個國家／地區的完整數據（2026/04/13–2026/09/14），讓我們能重新檢視第二章對這款「新星」的定位。結論：<strong>需要修正</strong>——它在馬來西亞的表現遠不如泰國、越南亮眼。</p>
+  <p>本章使用 Total Football VNG 在全球112個國家／地區的完整數據（2026/04/13–2026/09/14），重新檢視第二章對這款「新星」的定位。結論：<strong>需要修正</strong>——它在馬來西亞的表現遠不如泰國、越南亮眼。</p>
 
   <div class="dashboard-label">DASHBOARD · 全球市場分布</div>
   <div class="chart-panel">
@@ -620,8 +632,8 @@
 
 <div class="whistle">
   <h2>終場哨聲：九個章節，資料密度差異很大</h2>
-  <p>第1、2、8章有扎實的實測數據支撐，第5章查到了關鍵授權新聞，第7章有具體案例但仍有缺口，第3章需要你補充資料才能往下走。</p>
-  <p>下一步建議：優先決定第3章要用哪種方式補資料（見該頁的四個選項），並視需要查證第7章的球星代言缺口是否真的不存在，或只是我沒查到。</p>
+  <p>第1、2、8章有扎實的實測數據支撐，第5章查到了關鍵授權新聞，第7章有具體案例但仍有缺口，第3章仍待補充資料才能往下走。</p>
+  <p>下一步建議：優先決定第3章的資料蒐集方式（見該頁的四個選項），並視需要進一步查證第七章的球星代言缺口是否確實存在。</p>
 </div>
 <footer>
   DRAFT · 第一、二章市場數據、第八章VNG案例數據皆來自使用者提供之雙平台下載/收入資料，第五、七章資訊來自公開新聞查證，其餘章節資料來源包含 Statista、Sensor Tower、Mordor Intelligence等公開摘要 · 非最終版本，部分數字未逐筆查核
@@ -670,6 +682,7 @@
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
 <script>
 (function(){
   var DATA = {
@@ -699,11 +712,16 @@
     my_device: {"Android":38493.75,"iPhone":15985.65,"iPad":858.33}
   };
 
-  var CYAN='#00E6C3', GOLD='#FFC94D', PURPLE='#8B6BFF', GRID='rgba(255,255,255,0.08)', TXT='#9EA1B5';
+  var CYAN='#00E6C3', ORANGE='#FF8A3D', VNGC='#FF3DA8', PURPLE='#8B6BFF', GOLD='#FFC94D', GRID='rgba(255,255,255,0.08)', TXT='#9EA1B5';
+  var WC_YEARS = ['2014','2018','2022'];
+
+  if (window.ChartDataLabels) { Chart.register(ChartDataLabels); }
   Chart.defaults.color = TXT;
   Chart.defaults.font.family = "'Rajdhani', sans-serif";
   Chart.defaults.font.weight = '600';
   Chart.defaults.font.size = 11;
+  Chart.defaults.plugins.datalabels = Chart.defaults.plugins.datalabels || {};
+  Chart.defaults.plugins.datalabels.display = false;
 
   function fmtUSD(v){
     if (Math.abs(v) >= 1e6) return '$' + (v/1e6).toFixed(1) + 'M';
@@ -720,7 +738,9 @@
         interaction: { mode:'index', intersect:false },
         plugins: {
           legend: { labels: { boxWidth:12, boxHeight:12, usePointStyle:true, pointStyle:'circle' } },
-          tooltip: { backgroundColor:'#1A1A22', borderColor:'rgba(255,255,255,0.12)', borderWidth:1, padding:10 }
+          tooltip: { backgroundColor:'#1A1A22', borderColor:'rgba(255,255,255,0.12)', borderWidth:1, padding:10,
+            callbacks:{ afterBody:function(items){ var lbl=items[0].label; return WC_YEARS.indexOf(lbl)>-1 ? '★ 世界盃年份' : ''; } } },
+          datalabels:{ display:false }
         },
         scales: {
           x: { grid:{ color: GRID }, ticks:{ maxRotation:0, autoSkip:true, maxTicksLimit:12 } },
@@ -730,9 +750,17 @@
     });
   }
 
+  function wcPointStyle(labels, big, small){
+    return labels.map(function(y){ return WC_YEARS.indexOf(y)>-1 ? 'star' : 'circle'; });
+  }
+  function wcPointRadius(labels, big, small){
+    return labels.map(function(y){ return WC_YEARS.indexOf(y)>-1 ? big : small; });
+  }
+
   function deviceDoughnut(ctx, deviceData, title){
     var labels = Object.keys(deviceData);
     var values = labels.map(function(k){ return deviceData[k]; });
+    var sum = values.reduce(function(a,b){return a+b;},0);
     return new Chart(ctx, {
       type:'doughnut',
       data:{ labels:labels, datasets:[{ data: values, backgroundColor:[GOLD,CYAN,PURPLE], borderColor:'#0D0D13', borderWidth:2 }] },
@@ -741,25 +769,34 @@
         plugins:{
           legend:{ position:'bottom', labels:{ boxWidth:10, boxHeight:10, usePointStyle:true, pointStyle:'circle', padding:10, font:{size:10} } },
           tooltip:{ backgroundColor:'#1A1A22', borderColor:'rgba(255,255,255,0.12)', borderWidth:1, padding:10,
-            callbacks:{ label:function(c){ var sum=values.reduce(function(a,b){return a+b;},0); return c.label+': '+(c.parsed/sum*100).toFixed(1)+'%'; } } },
-          title:{ display: !!title, text:title, color:'#F3F4F8', font:{ family:"'Rajdhani',sans-serif", weight:'700', size:12 } }
+            callbacks:{ label:function(c){ return c.label+': '+(c.parsed/sum*100).toFixed(1)+'%'; } } },
+          title:{ display: !!title, text:title, color:'#F3F4F8', font:{ family:"'Rajdhani',sans-serif", weight:'700', size:12 } },
+          datalabels:{
+            display:true, color:'#0A0A0E', font:{ family:"'Rajdhani',sans-serif", weight:'700', size:11 },
+            formatter:function(v){ return (v/sum*100).toFixed(0)+'%'; }
+          }
         },
         cutout:'62%'
       }
     });
   }
 
-  function rankBar(ctx, rows){
+  var CYAN_SOFT = 'rgba(0,230,195,0.55)', ORANGE_SOFT='rgba(255,138,61,0.55)';
+
+  function rankBar2(ctx, rows, baseColor, baseSoft){
     var labels = rows.map(function(r){ return r[0]; });
     var values = rows.map(function(r){ return r[1]; });
-    var colors = rows.map(function(r){ return r[2] ? 'rgba(255,201,77,0.55)' : CYAN; });
+    var colors = rows.map(function(r){
+      if (r[0].indexOf('VNG') > -1) return VNGC;
+      return r[2] ? baseSoft : baseColor;
+    });
     return new Chart(ctx, {
       type:'bar',
       data:{ labels:labels, datasets:[{ data:values, backgroundColor:colors, borderRadius:2, barThickness:14 }] },
       options:{
         indexAxis:'y', responsive:true, maintainAspectRatio:false,
         plugins:{
-          legend:{ display:false },
+          legend:{ display:false }, datalabels:{ display:false },
           tooltip:{ backgroundColor:'#1A1A22', borderColor:'rgba(255,255,255,0.12)', borderWidth:1, padding:10,
             callbacks:{ label:function(c){ return fmtUSD(c.parsed.x) + (rows[c.dataIndex][2] ? '（未滿12個月）' : ''); } } }
         },
@@ -775,28 +812,30 @@
     if (chartsInit.p1) return; chartsInit.p1 = true;
     lineChart(document.getElementById('chartShare'), DATA.years, [
       { label:'新加坡', data: DATA.sg_share_pct, borderColor: CYAN, backgroundColor:'rgba(0,230,195,0.10)', fill:true, tension:0.3, pointRadius:2 },
-      { label:'馬來西亞', data: DATA.my_share_pct, borderColor: GOLD, backgroundColor:'rgba(255,201,77,0.12)', fill:true, tension:0.3, pointRadius:3 }
+      { label:'馬來西亞', data: DATA.my_share_pct, borderColor: ORANGE, backgroundColor:'rgba(255,138,61,0.12)', fill:true, tension:0.3, pointRadius:3 }
     ], { scales: { y: { grid:{color:GRID}, beginAtZero:true, ticks:{ callback:function(v){return v+'%';} } } } });
 
     lineChart(document.getElementById('chartSGdetail'), DATA.years, [
-      { label:'整體手遊(SG)', data: DATA.sg_all_rev, borderColor: CYAN, backgroundColor:'transparent', tension:0.25, pointRadius:2, yAxisID:'y' },
-      { label:'足球手遊(SG)', data: DATA.sg_football_rev, borderColor: '#8FF0DE', backgroundColor:'transparent', tension:0.25, pointRadius:2, borderDash:[4,3], yAxisID:'y1' }
+      { label:'整體手遊(SG)', data: DATA.sg_all_rev, borderColor: CYAN, backgroundColor:'transparent', tension:0.25, pointRadius:2, borderWidth:2.5 },
+      { label:'足球手遊(SG)', data: DATA.sg_football_rev, borderColor: '#FFFFFF', backgroundColor:'transparent', tension:0.25,
+        pointRadius: wcPointRadius(DATA.years,7,2), pointStyle: wcPointStyle(DATA.years), pointBackgroundColor:'#FFFFFF', pointBorderColor:CYAN,
+        borderDash:[5,4], borderWidth:1.8 }
     ], { scales: {
-      y: { grid:{color:GRID}, beginAtZero:true, ticks:{ callback:fmtUSD }, title:{display:true,text:'整體大盤',color:CYAN,font:{size:10}} },
-      y1:{ position:'right', grid:{display:false}, beginAtZero:true, ticks:{ callback:fmtUSD }, title:{display:true,text:'足球品類',color:'#8FF0DE',font:{size:10}} }
+      y: { type:'logarithmic', grid:{color:GRID}, ticks:{ callback:fmtUSD } }
     } });
 
     lineChart(document.getElementById('chartMYdetail'), DATA.years, [
-      { label:'整體手遊(MY)', data: DATA.my_all_rev, borderColor: GOLD, backgroundColor:'transparent', tension:0.25, pointRadius:2, yAxisID:'y' },
-      { label:'足球手遊(MY)', data: DATA.my_football_rev, borderColor: '#FFE29E', backgroundColor:'transparent', tension:0.25, pointRadius:2, borderDash:[4,3], yAxisID:'y1' }
+      { label:'整體手遊(MY)', data: DATA.my_all_rev, borderColor: ORANGE, backgroundColor:'transparent', tension:0.25, pointRadius:2, borderWidth:2.5 },
+      { label:'足球手遊(MY)', data: DATA.my_football_rev, borderColor: '#FFFFFF', backgroundColor:'transparent', tension:0.25,
+        pointRadius: wcPointRadius(DATA.years,7,2), pointStyle: wcPointStyle(DATA.years), pointBackgroundColor:'#FFFFFF', pointBorderColor:ORANGE,
+        borderDash:[5,4], borderWidth:1.8 }
     ], { scales: {
-      y: { grid:{color:GRID}, beginAtZero:true, ticks:{ callback:fmtUSD }, title:{display:true,text:'整體大盤',color:GOLD,font:{size:10}} },
-      y1:{ position:'right', grid:{display:false}, beginAtZero:true, ticks:{ callback:fmtUSD }, title:{display:true,text:'足球品類',color:'#FFE29E',font:{size:10}} }
+      y: { type:'logarithmic', grid:{color:GRID}, ticks:{ callback:fmtUSD } }
     } });
 
     lineChart(document.getElementById('chartRecent'), DATA.recent_months, [
       { label:'新加坡', data: DATA.sg_football_rev_monthly, borderColor: CYAN, backgroundColor:'transparent', tension:0.3, pointRadius:0, borderWidth:1.5 },
-      { label:'馬來西亞', data: DATA.my_football_rev_monthly, borderColor: GOLD, backgroundColor:'transparent', tension:0.3, pointRadius:0, borderWidth:1.5 }
+      { label:'馬來西亞', data: DATA.my_football_rev_monthly, borderColor: ORANGE, backgroundColor:'transparent', tension:0.3, pointRadius:0, borderWidth:1.5 }
     ], { scales: { y: { grid:{color:GRID}, beginAtZero:true, ticks:{ callback:fmtUSD } }, x:{ grid:{color:GRID}, ticks:{ maxTicksLimit:9, maxRotation:0 } } } });
 
     deviceDoughnut(document.getElementById('chartDeviceSG'), DATA.sg_device_rev, '新加坡');
@@ -805,16 +844,48 @@
 
   window.initPage2Charts = function(){
     if (chartsInit.p2) return; chartsInit.p2 = true;
-    rankBar(document.getElementById('chartRankSG'), RANK.SG);
-    rankBar(document.getElementById('chartRankMY'), RANK.MY);
+    rankBar2(document.getElementById('chartRankSG'), RANK.SG, CYAN, CYAN_SOFT);
+    rankBar2(document.getElementById('chartRankMY'), RANK.MY, ORANGE, ORANGE_SOFT);
+
+    // merge SG + MY into one combined top-10, colored by dominant contributing market
+    var merged = {};
+    RANK.SG.forEach(function(r){ merged[r[0]] = merged[r[0]] || {sg:0,my:0,partial:false}; merged[r[0]].sg += r[1]; merged[r[0]].partial = merged[r[0]].partial || r[2]; });
+    RANK.MY.forEach(function(r){ merged[r[0]] = merged[r[0]] || {sg:0,my:0,partial:false}; merged[r[0]].my += r[1]; merged[r[0]].partial = merged[r[0]].partial || r[2]; });
+    var combinedRows = Object.keys(merged).map(function(name){
+      var m = merged[name];
+      return [name, m.sg+m.my, m.partial, m.sg>=m.my ? 'sg':'my'];
+    }).sort(function(a,b){ return b[1]-a[1]; }).slice(0,10);
+
+    var labels = combinedRows.map(function(r){return r[0];});
+    var values = combinedRows.map(function(r){return r[1];});
+    var colors = combinedRows.map(function(r){
+      if (r[0].indexOf('VNG') > -1) return VNGC;
+      return r[3]==='sg' ? CYAN : ORANGE;
+    });
+    new Chart(document.getElementById('chartRankCombined'), {
+      type:'bar',
+      data:{ labels:labels, datasets:[{ data:values, backgroundColor:colors, borderRadius:2, barThickness:14 }] },
+      options:{
+        indexAxis:'y', responsive:true, maintainAspectRatio:false,
+        plugins:{
+          legend:{ display:false }, datalabels:{ display:false },
+          tooltip:{ backgroundColor:'#1A1A22', borderColor:'rgba(255,255,255,0.12)', borderWidth:1, padding:10,
+            callbacks:{ label:function(c){ var r=combinedRows[c.dataIndex]; return fmtUSD(c.parsed.x) + '（主要來自' + (r[3]==='sg'?'新加坡':'馬來西亞') + '）'; } } }
+        },
+        scales:{
+          x:{ type:'logarithmic', grid:{color:GRID}, ticks:{ callback:fmtUSD } },
+          y:{ grid:{display:false}, ticks:{ font:{ size:10 } } }
+        }
+      }
+    });
   };
 
   window.initPage8Charts = function(){
     if (chartsInit.p8) return; chartsInit.p8 = true;
     new Chart(document.getElementById('chartVNGcountries'), {
       type:'bar',
-      data:{ labels:VNG.countries, datasets:[{ data:VNG.revenue, backgroundColor: VNG.countries.map(function(c){return c.indexOf('MY')>-1?GOLD:(c.indexOf('SG')>-1?CYAN:PURPLE);}), borderRadius:2 }] },
-      options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{display:false}, tooltip:{ backgroundColor:'#1A1A22', borderColor:'rgba(255,255,255,0.12)', borderWidth:1, padding:10, callbacks:{ label:function(c){return fmtUSD(c.parsed.y);} } } },
+      data:{ labels:VNG.countries, datasets:[{ data:VNG.revenue, backgroundColor: VNG.countries.map(function(c){return c.indexOf('MY')>-1?ORANGE:(c.indexOf('SG')>-1?CYAN:PURPLE);}), borderRadius:2 }] },
+      options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{display:false}, datalabels:{display:false}, tooltip:{ backgroundColor:'#1A1A22', borderColor:'rgba(255,255,255,0.12)', borderWidth:1, padding:10, callbacks:{ label:function(c){return fmtUSD(c.parsed.y);} } } },
         scales:{ x:{ grid:{display:false}, ticks:{font:{size:10}} }, y:{ grid:{color:GRID}, ticks:{ callback:fmtUSD } } } }
     });
 
@@ -822,13 +893,13 @@
       type:'line',
       data:{ labels:VNG.my_weekly_labels, datasets:[
         { label:'下載量', data:VNG.my_weekly_dl, borderColor:PURPLE, backgroundColor:'transparent', tension:0.3, pointRadius:0, yAxisID:'y' },
-        { label:'營收(US$)', data:VNG.my_weekly_rev, borderColor:GOLD, backgroundColor:'rgba(255,201,77,0.12)', fill:true, tension:0.3, pointRadius:0, yAxisID:'y1' }
+        { label:'營收(US$)', data:VNG.my_weekly_rev, borderColor:ORANGE, backgroundColor:'rgba(255,138,61,0.12)', fill:true, tension:0.3, pointRadius:0, yAxisID:'y1' }
       ] },
       options:{ responsive:true, maintainAspectRatio:false, interaction:{mode:'index',intersect:false},
-        plugins:{ legend:{ labels:{boxWidth:12,boxHeight:12,usePointStyle:true,pointStyle:'circle'} }, tooltip:{ backgroundColor:'#1A1A22', borderColor:'rgba(255,255,255,0.12)', borderWidth:1, padding:10 } },
+        plugins:{ legend:{ labels:{boxWidth:12,boxHeight:12,usePointStyle:true,pointStyle:'circle'} }, datalabels:{display:false}, tooltip:{ backgroundColor:'#1A1A22', borderColor:'rgba(255,255,255,0.12)', borderWidth:1, padding:10 } },
         scales:{ x:{ grid:{color:GRID}, ticks:{maxTicksLimit:8, maxRotation:0, font:{size:9}} },
           y:{ grid:{color:GRID}, beginAtZero:true, title:{display:true,text:'下載量',color:PURPLE,font:{size:10}} },
-          y1:{ position:'right', grid:{display:false}, beginAtZero:true, ticks:{callback:fmtUSD}, title:{display:true,text:'營收',color:GOLD,font:{size:10}} } } }
+          y1:{ position:'right', grid:{display:false}, beginAtZero:true, ticks:{callback:fmtUSD}, title:{display:true,text:'營收',color:ORANGE,font:{size:10}} } } }
     });
 
     deviceDoughnut(document.getElementById('chartVNGmyDevice'), VNG.my_device, null);

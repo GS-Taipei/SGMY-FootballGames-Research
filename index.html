@@ -170,15 +170,14 @@
   blockquote{ margin:20px 0; padding:4px 0 4px 16px; border-left:2px solid var(--cyan); color:var(--text-dim); font-style:italic; font-size:14.5px; }
 
   /* regulation comparison cards */
-  .reg-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:20px 0; }
-  @media (max-width:560px){ .reg-grid{ grid-template-columns:1fr; } }
+  .reg-grid{ display:grid; grid-template-columns:1fr; gap:14px; margin:20px 0; }
   .reg-card{ background:var(--panel-2); border:1px solid var(--line); padding:18px 16px; }
   .reg-card .flag{ font-size:22px; margin-bottom:8px; }
   .reg-card h4{ font-family:'Rajdhani',sans-serif; font-weight:700; font-size:14px; color:var(--text); margin:0 0 4px; }
   .reg-card .date{ font-family:'Rajdhani',sans-serif; font-weight:700; font-size:11px; color:var(--cyan); margin-bottom:10px; }
   .reg-card ul{ padding-left:18px; margin:0; font-size:12.5px; color:var(--text-dim); }
   .reg-card li{ margin-bottom:6px; }
-  .reg-timeline{ position:relative; margin:26px 0 10px; padding:0 6px; }
+  .reg-timeline{ position:relative; margin:26px 0 10px; padding:0 6px; min-height:64px; }
   .reg-timeline .track{ height:2px; background:var(--line); position:relative; margin:0 10px; }
   .reg-timeline .pt{ position:absolute; top:-5px; width:12px; height:12px; border-radius:50%; background:var(--cyan); box-shadow:0 0 8px var(--cyan); }
   .reg-timeline .pt.my{ background:var(--gold); box-shadow:0 0 8px var(--gold); }
@@ -213,7 +212,7 @@
     <button class="sb-tab" data-target="1"><span class="n">01</span>市場規模</button>
     <button class="sb-tab" data-target="2"><span class="n">02</span>競品分析</button>
     <button class="sb-tab" data-target="3"><span class="n">03</span>玩家輪廓</button>
-    <button class="sb-tab" data-target="4"><span class="n">04</span>法規風險</button>
+    <button class="sb-tab" data-target="4"><span class="n">04</span>法規分級</button>
     <button class="sb-tab" data-target="5"><span class="n">05</span>在地文化</button>
     <button class="sb-tab" data-target="6"><span class="n">06</span>廣宣手法</button>
     <button class="sb-tab" data-target="7"><span class="n">07</span>VNG足球</button>
@@ -449,7 +448,7 @@
 <div class="pager"><button class="prev">← 上一頁</button><span class="count">3 / 9</span><button class="next">下一頁 →</button></div>
 </div>
 
-<!-- PAGE 4: 法規風險 -->
+<!-- PAGE 4: 法規分級 -->
 <div class="page" id="page-4">
 <section class="chapter">
   <div class="ch-kicker"><span class="badge">4</span><span class="lb">法規分級</span></div>
@@ -488,6 +487,24 @@
         <li><strong>兒童保護準則（CPC）／風險緩解準則（RMC）</strong>2026年6月1日生效：要求平台落實「設計即安全」機制，但規範對象是平台整體，而非個別遊戲的內容分級</li>
       </ul>
     </div>
+    <div class="reg-card">
+      <div class="flag">🇸🇬</div>
+      <h4>新加坡：風險提示</h4>
+      <ul>
+        <li>含抽卡／課金機制（如 Ultimate Team）的足球遊戲，可能面臨明確的 M18 分級與標示成本</li>
+        <li>建議在正式報告前查閱新加坡 IMDA 官網的公告原文，確認最新修訂的實際適用範圍</li>
+        <li>可參考歐洲（比利時、荷蘭）loot box 判例，作為風險比較基準</li>
+      </ul>
+    </div>
+    <div class="reg-card">
+      <div class="flag">🇲🇾</div>
+      <h4>馬來西亞：風險提示</h4>
+      <ul>
+        <li>因沒有專屬遊戲分級制度，實際監理風險更多來自 ONSA 的平台級年齡驗證義務，而非個別遊戲的內容審查</li>
+        <li>建議查閱馬來西亞 MCMC 的 CPC／RMC 細節，確認對遊戲平台的實際適用要求</li>
+        <li>年齡驗證機制若跟不上2026年6月生效的新規範，可能面臨合規缺口</li>
+      </ul>
+    </div>
   </div>
 
   <p style="font-size:13px; color:var(--text-dim);">區域對照：印尼已於2026年1月上路自己的遊戲分級制度（IGRS：3+／7+／13+／15+／18+／RC），顯示東協區域在遊戲分級成熟度上差異懸殊——新加坡制度化最完整，馬來西亞尚未建立專屬制度，印尼則是最新加入的一員。</p>
@@ -502,12 +519,7 @@
       <div class="lbl" style="left:60%">2026/06/01<br>MY CPC/RMC生效</div>
     </div>
   </div>
-  <p style="margin-top:50px; font-size:12px; color:var(--text-dim); text-align:center;">時間軸示意，非等比例</p>
-
-  <div class="risk-box">
-    <div class="h"><span class="card-icon red"></span>紅牌風險提示</div>
-    <p>含抽卡／課金機制的足球遊戲，在新加坡可能面臨明確的M18分級與標示成本；在馬來西亞則因為沒有專屬遊戲分級制度，實際監理風險更多來自ONSA的平台級年齡驗證義務，而非個別遊戲內容審查。建議在正式報告前查閱新加坡 IMDA 官網公告原文與馬來西亞 MCMC 的 CPC／RMC 細節，並可參考歐洲（比利時、荷蘭）loot box 判例作為風險比較基準。</p>
-  </div>
+  <p style="margin-top:12px; font-size:12px; color:var(--text-dim); text-align:center;">時間軸示意，非等比例</p>
 </section>
 <div class="pager"><button class="prev">← 上一頁</button><span class="count">4 / 9</span><button class="next">下一頁 →</button></div>
 </div>
